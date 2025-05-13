@@ -1,0 +1,91 @@
+<ProductoItem>:
+    on_release: app.root.aumentar_cantidad(root.index)
+
+    IconLeftWidget:
+        icon: "plus"
+        on_release: app.root.aumentar_cantidad(root.index)
+
+    IconLeftWidget:
+        icon: "minus"
+        on_release: app.root.disminuir_cantidad(root.index)
+
+    IconLeftWidget:
+        icon: "pencil"
+        on_release: app.root.editar_producto(root.index)
+
+    IconLeftWidget:
+        icon: "delete"
+        on_release: app.root.eliminar_producto(root.index)
+        
+
+<EditarProducto>:
+    orientation: "vertical"
+    spacing: "10dp"
+    size_hint_y: None
+    height: "200dp"
+
+    MDTextField:
+        id: nombre
+        hint_text: "Nombre del producto"
+        text: root.nombre
+    MDTextField:
+        id: precio
+        hint_text: "Precio"
+        text: str(root.precio)
+        input_filter: 'float'
+    MDTextField:
+        id: cantidad
+        hint_text: "Cantidad"
+        text: str(root.cantidad)
+        input_filter: 'int'
+
+<MainApp>:
+    orientation: "vertical"
+    padding: "10dp"
+    spacing: "10dp"
+
+    MDBoxLayout:
+        size_hint_y: None
+        height: "60dp"
+        spacing: 10
+        padding: "10dp"
+        MDLabel:
+            text: "VENTA DE PRODUCTOS"
+            font_style: "H5"
+            halign: "left"
+        MDRaisedButton:
+            text: "+"
+            pos_hint: {"center_y": 0.5}
+            on_release: root.agregar_producto()
+
+    MDBoxLayout:
+        size_hint_y: None
+        height: "60dp"
+        spacing: 10
+        MDRaisedButton:
+            text: "Guardar Ganancia del Día"
+            md_bg_color: 0, 0.5, 0, 1
+            on_release: root.guardar_ganancia(root.index)
+
+        MDRaisedButton:
+            text: "Historial"
+            md_bg_color: 0, 0.5, 0, 1
+            on_release: root.mostrar_historial()
+
+    MDSeparator:
+        height: "1dp"
+
+    ScrollView:
+        MDList:
+            id: productos_layout
+
+    MDBoxLayout:
+        size_hint_y: None
+        height: "60dp"
+        md_bg_color: 0, 0, 0, 1
+        MDLabel:
+            text: f"TOTAL DEL DÍA: {root.total:.2f} $"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            font_style: "H6"

@@ -1,0 +1,26 @@
+[
+    {
+        "fecha": "12-05-2025",
+        "producto": "Cafe",
+        "cantidad": 5,
+        "total": 36000.0
+    },
+    {
+        "fecha": "12-05-2025",
+        "producto": "Pepsi chica",
+        "cantidad": 4,
+        "total": 4800.0
+    },
+    {
+        "fecha": "13-05-2025",
+        "producto": "Cafe",
+        "cantidad": 0,
+        "total": 0
+    },
+    {
+        "fecha": "13-05-2025",
+        "producto": "Cafe",
+        "cantidad": 3,
+        "total": 51000.0
+    }
+]
